@@ -2,6 +2,7 @@ local MarketplaceService = game:GetService("MarketplaceService")
 
 local games = {
     [8540346411] = {src="https://raw.githubusercontent.com/testingnilware/RebirthChampionsX/main/Rebirth%20Champions%20X.lua"}, -- Rebirth Champions X
+    [8408807687] = {src="https://raw.githubusercontent.com/testingnilware/Testing/main/Testing.lua"}, -- Test
 } 
 
 local check = games[game.PlaceId] 
