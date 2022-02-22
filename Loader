@@ -1,7 +1,7 @@
 local MarketplaceService = game:GetService("MarketplaceService")
 
 local games = {
-    [8540346411] = {src="https://raw.githubusercontent.com/Roblox-SkillHub/Main/main/Games/Rebirth-Champions-X.lua"},
+    [8540346411] = {src="https://raw.githubusercontent.com/testingnilware/RebirthChampionsX/main/Rebirth%20Champions%20X.lua"},
 } 
 
 local check = games[game.PlaceId] 
