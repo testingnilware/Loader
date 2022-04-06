@@ -1,5 +1,3 @@
-local library = {}
-
 local ts = game:GetService("TweenService")
 local uis = game:GetService("UserInputService")
 local Players = game:GetService("Players")
@@ -22,7 +20,9 @@ function RandomCharacters(length)
 	return STR
 end
 
-function library:CreateWindow()
+local lib = {}
+
+function lib:CreateWindow()
     for _,v in pairs(game:GetService("CoreGui"):GetChildren()) do
         if v:FindFirstChild("MainHolder") then
             v:Destroy()
@@ -667,3 +667,5 @@ function library:CreateWindow()
     end
     return containers
 end
+
+return lib
