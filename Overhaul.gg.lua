@@ -667,4 +667,3 @@ function library:CreateWindow()
     end
     return containers
 end
-return library
