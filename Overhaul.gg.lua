@@ -7,14 +7,6 @@ local selectedTab = nil
 local Value
 local moveConnection
 local releaseConnection
-local circleTime = 0.1
-local Circle = Instance.new("ImageLabel")
-Circle.Name = "Circle"
-Circle.Parent = nil
-Circle.BackgroundTransparency = 1
-Circle.ZIndex = 10
-Circle.Image = "rbxassetid://266543268"
-Circle.ImageColor3 = Color3.fromRGB(0, 145, 255)
 
 local function tweenUI(state, obj, val, length)
 	ts:Create(obj, TweenInfo.new(length, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {[state] = val}):Play()
@@ -28,32 +20,6 @@ function RandomCharacters(length)
 	end
 
 	return STR
-end
-
-function CircleClick(Button)
-    spawn(function()
-        Button.ClipsDescendants = true
-        local circ = Circle:Clone()
-        circ.Parent = Button
-        local newX = mouse.X - circ.AbsolutePosition.X
-        local newY = mouse.Y - circ.AbsolutePosition.Y
-        circ.Position = UDim2.new(0, newX, 0, newY)
-        local size = 0
-        if Button.AbsoluteSize.X > Button.AbsoluteSize.Y then
-            size = Button.AbsoluteSize.X * 1.5
-        elseif Button.AbsoluteSize.X < Button.AbsoluteSize.Y then
-            size = Button.AbsoluteSize.Y * 1.5
-        elseif Button.AbsoluteSize.X == Button.AbsoluteSize.Y then
-            size = Button.AbsoluteSize.X * 1.5
-        end
-        tweenUI("Size", circ, UDim2.new(0, size, 0, size), .2)
-        tweenUI("Position", circ, UDim2.new(0.5, -size / 2, 0.5, -size / 2), circleTime)
-        for i = 1, 10 do
-            circ.ImageTransparency += 0.1
-            task.wait(circleTime / 10)
-        end
-        circ:Destroy()
-    end)
 end
 
 local library = {}
@@ -480,7 +446,6 @@ function library:CreateWindow(name)
 				ButtonTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 				Button.MouseButton1Click:Connect(function()
-                    CircleClick(Button)
 					tweenUI("Size", Button, UDim2.new(.95, 0, 0, 28), 0.1)
 					task.wait(0.1)
 					tweenUI("Size", Button, UDim2.new(1, 0, 0, 32), 0.1)
@@ -561,7 +526,6 @@ function library:CreateWindow(name)
 
 				ToggleButton.MouseButton1Click:Connect(function()
 					toggled = not toggled
-                    CircleClick(ToggleButton)
 					if toggled then
 						tweenUI("ImageColor3", ToggleTween, Color3.fromRGB(46, 255, 88), 0.1)
 						--tweenUI("ImageColor3", ToggleFrame, Color3.fromRGB(0, 145, 255), 0.1)
@@ -769,7 +733,6 @@ function library:CreateWindow(name)
                 UIListLayout_3.Padding = UDim.new(0, 6)
 
                 Btn.MouseButton1Click:Connect(function()
-                    CircleClick(Btn)
                     if not dropped then
                         dropped = true
                         Holder.Visible = true
