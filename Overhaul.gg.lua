@@ -7,7 +7,7 @@ local selectedTab = nil
 local Value
 local moveConnection
 local releaseConnection
-local circleTime = 0.5
+local circleTime = 0.1
 local Circle = Instance.new("ImageLabel")
 Circle.Name = "Circle"
 Circle.Parent = nil
