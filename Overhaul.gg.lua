@@ -4,6 +4,7 @@ local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local mouse = player:GetMouse()
 local selectedTab = nil
+local timeSinceExecution = 0
 local Value
 local moveConnection
 local releaseConnection
@@ -30,6 +31,14 @@ function library:CreateWindow(name)
 			v:Destroy()
 		end
 	end
+
+	spawn(function()
+		while true do
+			timeSinceExecution += 1
+			task.wait(1)
+		end
+	end)
+
 	local Hub = Instance.new("ScreenGui")
 	local MainHolder = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -259,7 +268,7 @@ function library:CreateWindow(name)
 	UIPadding_4.PaddingLeft = UDim.new(0, 10)
 
 	MenuButton.MouseButton1Click:Connect(function()
-		tweenUI("Position", TabMenu, UDim2.new(0.02,-10, 0,0,0), 0.1)
+		tweenUI("Position", TabMenu, UDim2.new(0.016,-10, 0,0,0), 0.1)
 	end)
 
 	MenuCloseButton.MouseButton1Click:Connect(function()
@@ -278,14 +287,29 @@ function library:CreateWindow(name)
 	end
 
 	CloseButton.MouseButton1Click:Connect(function()
-		MainHolder.Visible = false
+		if not MainHolder.Visible then
+			tweenUI("Size", MainHolder, UDim2.new(0,480, 0,380), .2)
+		else
+			tweenUI("Size", MainHolder, UDim2.new(0,0, 0,0), .2)
+			task.wait(.2)
+		end
+		MainHolder.Visible = not MainHolder.Visible
 	end)
 
 	uis.InputBegan:Connect(function(input)
 		if input.KeyCode == Enum.KeyCode.RightShift then
-			MainHolder.Visible = not MainHolder.Visible 
+			if not MainHolder.Visible then
+				tweenUI("Size", MainHolder, UDim2.new(0,480, 0,380), .2)
+			else
+				tweenUI("Size", MainHolder, UDim2.new(0,0, 0,0), .2)
+				task.wait(.2)
+			end
+			MainHolder.Visible = not MainHolder.Visible
 		end
 	end)
+
+	UserButton.Visible = false
+	SettingsButton.Visible = false
 
 	local containers = {}
 
@@ -575,7 +599,7 @@ function library:CreateWindow(name)
 				SliderText.BackgroundTransparency = 1.000
 				SliderText.Position = UDim2.new(0, 10, 0, 0)
 				SliderText.Size = UDim2.new(0, 1, 0.800000012, 0)
-				SliderText.Font = Enum.Font.Gotham
+				SliderText.Font = Enum.Font.GothamSemibold
 				SliderText.Text = text
 				SliderText.TextColor3 = Color3.fromRGB(255, 255, 255)
 				SliderText.TextSize = 14.000
@@ -587,7 +611,7 @@ function library:CreateWindow(name)
 				SliderValue.BackgroundTransparency = 1.000
 				SliderValue.Position = UDim2.new(0, 420, 0, 0)
 				SliderValue.Size = UDim2.new(0, 1, 0.800000012, 0)
-				SliderValue.Font = Enum.Font.Gotham
+				SliderValue.Font = Enum.Font.GothamSemibold
 				SliderValue.Text = minvalue
 				SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
 				SliderValue.TextSize = 14.000
