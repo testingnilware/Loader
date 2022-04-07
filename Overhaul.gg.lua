@@ -7,7 +7,7 @@ local selectedTab = nil
 local Value
 local moveConnection
 local releaseConnection
-local circleTime = 0.5
+local circleTime = 0.1
 local Circle = Instance.new("ImageLabel")
 Circle.Name = "Circle"
 Circle.Parent = nil
@@ -35,7 +35,6 @@ function CircleClick(Button)
         Button.ClipsDescendants = true
         local circ = Circle:Clone()
         circ.Parent = Button
-        print(Button.Name)
         local newX = mouse.X - circ.AbsolutePosition.X
         local newY = mouse.Y - circ.AbsolutePosition.Y
         circ.Position = UDim2.new(0, newX, 0, newY)
