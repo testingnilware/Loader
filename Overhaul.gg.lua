@@ -7,7 +7,7 @@ local selectedTab = nil
 local Value
 local moveConnection
 local releaseConnection
-local circleTime = 0.1
+local circleTime = 0.5
 local Circle = Instance.new("ImageLabel")
 Circle.Name = "Circle"
 Circle.Parent = nil
@@ -46,7 +46,7 @@ function CircleClick(Button)
         elseif Button.AbsoluteSize.X == Button.AbsoluteSize.Y then
             size = Button.AbsoluteSize.X * 1.5
         end
-        tweenUI("Size", circ, UDim2.new(0, size, 0, size), .1)
+        tweenUI("Size", circ, UDim2.new(0, size, 0, size), .2)
         tweenUI("Position", circ, UDim2.new(0.5, -size / 2, 0.5, -size / 2), circleTime)
         for i = 1, 10 do
             circ.ImageTransparency += 0.1
