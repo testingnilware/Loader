@@ -564,10 +564,10 @@ function library:CreateWindow(name)
                     CircleClick(ToggleButton)
 					if toggled then
 						tweenUI("ImageColor3", ToggleTween, Color3.fromRGB(46, 255, 88), 0.1)
-						tweenUI("ImageColor3", ToggleFrame, Color3.fromRGB(0, 145, 255), 0.1)
+						--tweenUI("ImageColor3", ToggleFrame, Color3.fromRGB(0, 145, 255), 0.1)
 					else
 						tweenUI("ImageColor3", ToggleTween, Color3.fromRGB(255, 55, 37), 0.1)
-						tweenUI("ImageColor3", ToggleFrame, Color3.fromRGB(22, 22, 22), 0.1)
+						--tweenUI("ImageColor3", ToggleFrame, Color3.fromRGB(22, 22, 22), 0.1)
 					end
 					ToggleTween:TweenPosition(toggled and UDim2.new(1, -3,0.5, 0) or UDim2.new(0.5, -3,0.5, 0), "InOut", "Linear", 0.1)
 					pcall(callback, toggled)
