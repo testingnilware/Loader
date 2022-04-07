@@ -112,7 +112,7 @@ function library:CreateWindow(name)
 	TopTitle.Position = UDim2.new(0, 33, 0.200000003, 0)
 	TopTitle.Size = UDim2.new(0, 200, 0, 25)
 	TopTitle.Font = Enum.Font.GothamSemibold
-	TopTitle.Text = name
+	TopTitle.Text = "Trinity.gg | " .. name
 	TopTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 	TopTitle.TextScaled = true
 	TopTitle.TextSize = 14.000
