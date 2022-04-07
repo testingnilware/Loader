@@ -737,8 +737,8 @@ function library:CreateWindow(name)
                         dropped = true
                         Holder.Visible = true
                         tweenUI("Rotation", DropdownIcon, 180, .1)
-                        tweenUI("Size", Holder, UDim2.new(1, 0, 0, UIListLayout_3.AbsoluteContentSize.Y + 6), .1)
-                        tweenUI("Size", Dropdown, UDim2.new(1, 0, 0, UIListLayout_3.AbsoluteContentSize.Y + 32), .1)
+                        tweenUI("Size", Holder, UDim2.new(1, 0, 0, UIListLayout_3.AbsoluteContentSize.Y), .1)
+                        tweenUI("Size", Dropdown, UDim2.new(1, 0, 0, UIListLayout_3.AbsoluteContentSize.Y + 40), .1)
                         task.wait(.1)
                         Dropdown.ClipsDescendants = false
                         Holder.ClipsDescendants = false
